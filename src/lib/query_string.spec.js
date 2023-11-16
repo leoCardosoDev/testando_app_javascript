@@ -23,7 +23,7 @@ describe('Object to query string', () => {
     }
     expect(() => {
       queryString(obj)
-    }).toThrowError()
+    }).toThrow()
   })
 })
 
