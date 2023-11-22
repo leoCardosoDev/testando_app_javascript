@@ -130,5 +130,30 @@ describe('Cart', () => {
       })
       expect(cart.getTotal().getAmount()).toEqual(106164)
     })
+
+    it('Should NOT apply percentage discount is below or equals minumum', () => {
+      const condition = {
+        percentage: 30,
+        minimum: 2,
+      }
+      cart.add({
+        product,
+        condition,
+        quantity: 2
+      })
+      expect(cart.getTotal().getAmount()).toEqual(70776)
+    })
+
+    it('Should NOT apply quantity discount is below or equals quantities', () => {
+      const condition = {
+        quantity: 2,
+      }
+      cart.add({
+        product,
+        condition,
+        quantity: 1
+      })
+      expect(cart.getTotal().getAmount()).toEqual(35388)
+    })
   })
 })
