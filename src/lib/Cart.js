@@ -2,9 +2,9 @@ import find from 'lodash/find'
 import remove from 'lodash/remove'
 import Dinero from 'dinero.js'
 
-const calculatePercentageDiscount = (amount, item) => {
-  if (item.condition?.percentage && item.quantity > item.condition.minimum) {
-    return amount.percentage(item.condition.percentage)
+const calculatePercentageDiscount = (amount, { condition, quantity }) => {
+  if (condition?.percentage && quantity > condition.minimum) {
+    return amount.percentage(condition.percentage)
   }
   return Money({ amount: 0 })
 }
