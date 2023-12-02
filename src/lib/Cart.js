@@ -55,11 +55,11 @@ export default class Cart {
 
   getTotal() {
     return this.items.reduce(
-      (acc, item) => {
-        const amount = Money({ amount: item.quantity * item.product.price })
+      (acc, { quantity, product, condition }) => {
+        const amount = Money({ amount: quantity * product.price })
         let discount = Money({ amount: 0 })
-        if (item.condition) {
-          discount = calculateDiscount(amount, item.quantity, item.condition)
+        if (condition) {
+          discount = calculateDiscount(amount, quantity, condition)
         }
         return acc.add(amount).subtract(discount)
       },
