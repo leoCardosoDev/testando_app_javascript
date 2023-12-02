@@ -16,6 +16,7 @@ const calculateQuantityDiscount = (amount, { condition, quantity }) => {
 }
 
 export const calculateDiscount = (amount, quantity, condition) => {
+  debugger
   const list = Array.isArray(condition) ? condition : [condition]
   const [higherDiscount] = list
     .map(cond => {

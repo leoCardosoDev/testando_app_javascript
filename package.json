@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:debug": "ndb jest"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "@types/jest": "^29.5.8",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
+    "ndb": "^1.0.26",
     "prettier": "^3.1.0"
   },
   "dependencies": {
