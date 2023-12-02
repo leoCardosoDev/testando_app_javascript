@@ -91,6 +91,18 @@ describe('Cart', () => {
       expect(cart.summary()).toMatchSnapshot()
       expect(cart.getTotal().getAmount()).toBeGreaterThan(0)
     })
+
+    it('should include formatted aumount in the summary',() => {
+      cart.add({
+        product,
+        quantity: 5,
+      })
+      cart.add({
+        product: product2,
+        quantity: 3,
+      })
+      expect(cart.summary().formatted).toEqual('R$3,025.56')
+    })
   })
 
   describe('special conditions', () => {
